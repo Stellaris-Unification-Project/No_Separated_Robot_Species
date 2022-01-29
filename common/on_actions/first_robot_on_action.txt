@@ -1,0 +1,10 @@
+on_game_start = {
+	events = {
+		first_robot.1
+	}
+}
+on_decade_pulse = {
+	events = {
+		no_more_robot.2
+	}
+}

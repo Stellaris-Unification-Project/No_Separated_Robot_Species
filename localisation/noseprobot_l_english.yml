@@ -1,0 +1,4 @@
+﻿l_english:
+
+ edict_no_more_robot:0 "Provisional Robot Fix"
+ edict_no_more_robot_desc:0 "If there are multiple primary robot species, try this edict."

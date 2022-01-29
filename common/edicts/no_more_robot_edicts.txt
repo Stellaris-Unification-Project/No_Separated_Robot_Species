@@ -1,0 +1,19 @@
+no_more_robot = {
+	length = 0
+	icon = "GFX_edict_type_policy"
+	resources = {
+		category = campaigns
+	}
+	potential = {
+		is_ai = no
+	}
+	allow = {
+		is_ai = no
+	}
+	effect = {
+		country_event = { id = no_more_robot.1 }
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

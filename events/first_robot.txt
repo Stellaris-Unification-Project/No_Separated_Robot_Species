@@ -1,0 +1,53 @@
+namespace = first_robot
+
+event = {
+	hide_window = yes
+	id = first_robot.1
+	is_triggered_only = yes
+	immediate = {
+		create_species = {
+			name = "NAME_Robot"
+			plural = "NAME_Robots"
+			class = ROBOT
+			namelist = "PRT1"
+			portrait = "default_robot"
+			traits = {
+				trait = "trait_mechanical"
+			}
+			effect = {
+				save_global_event_target_as = drbt
+				set_species_flag = drbt_done
+			}
+		}
+		create_species = {
+			name = "MACHINE"
+			class = MACHINE
+			namelist = MACHINE3
+			portrait = "default_robot"
+			traits = {
+				trait = trait_machine_unit
+			}
+			effect = {
+				save_global_event_target_as = dmc
+				set_species_flag = dmc_done
+			}
+		}
+		every_galaxy_species = {
+			limit = {
+				NOT = {has_species_flag = drbt_done}
+				has_trait = trait_mechanical
+			}
+			set_species_identity = event_target:drbt
+			set_species_flag = drbt_done
+		}
+		every_galaxy_species = {
+			limit = {
+				NOT = { has_species_flag = dmc_done }
+				has_trait = trait_machine_unit
+			}
+			set_species_identity = event_target:dmc
+			set_species_flag = dmc_done
+		}
+		set_global_flag = rmmod_done
+	}
+}

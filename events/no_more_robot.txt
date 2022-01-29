@@ -1,0 +1,173 @@
+namespace = no_more_robot
+
+country_event = {
+	hide_window = yes
+	id = no_more_robot.1
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			limit = { is_mechanical_empire = yes }
+			if = {
+				limit = {
+					owner_species = {
+						NOT = { has_species_flag = drbt_done }
+					}
+				}
+				owner_species = { set_species_flag = drbt_done }
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = rmmod_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = drbt_done }
+					has_trait = trait_mechanical
+				}
+				set_species_identity = event_target:drbt
+				set_species_flag = drbt_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = dmc_done }
+					has_trait = trait_machine_unit
+				}
+				set_species_identity = event_target:dmc
+				set_species_flag = dmc_done
+			}
+		}
+		else = {	
+			create_species = {
+				name = "NAME_Robot"
+				plural = "NAME_Robots"
+				class = ROBOT
+				namelist = "PRT1"
+				portrait = "default_robot"
+				traits = {
+					trait = "trait_mechanical"
+				}
+				effect = {
+					save_global_event_target_as = drbt
+					set_species_flag = drbt_done
+				}
+			}
+			create_species = {
+				name = "MACHINE"
+				class = MACHINE
+				namelist = MACHINE3
+				portrait = "default_robot"
+				traits = {
+					trait = trait_machine_unit
+				}
+				effect = {
+					save_global_event_target_as = dmc
+					set_species_flag = dmc_done
+				}
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = drbt_done }
+					has_trait = trait_mechanical
+				}
+				set_species_identity = event_target:drbt
+				set_species_flag = drbt_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = dmc_done }
+					has_trait = trait_machine_unit
+				}
+				set_species_identity = event_target:dmc
+				set_species_flag = dmc_done
+			}
+			set_global_flag = rmmod_done
+		}
+	}
+}
+
+event = {
+	hide_window = yes
+	id = no_more_robot.2
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			limit = { is_mechanical_empire = yes }
+			if = {
+				limit = {
+					owner_species = {
+						NOT = { has_species_flag = drbt_done }
+					}
+				}
+				owner_species = { set_species_flag = drbt_done }
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = rmmod_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = drbt_done }
+					has_trait = trait_mechanical
+				}
+				set_species_identity = event_target:drbt
+				set_species_flag = drbt_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = dmc_done }
+					has_trait = trait_machine_unit
+				}
+				set_species_identity = event_target:dmc
+				set_species_flag = dmc_done
+			}
+		}
+		else = {	
+			create_species = {
+				name = "NAME_Robot"
+				plural = "NAME_Robots"
+				class = ROBOT
+				namelist = "PRT1"
+				portrait = "default_robot"
+				traits = {
+					trait = "trait_mechanical"
+				}
+				effect = {
+					save_global_event_target_as = drbt
+					set_species_flag = drbt_done
+				}
+			}
+			create_species = {
+				name = "MACHINE"
+				class = MACHINE
+				namelist = MACHINE3
+				portrait = "default_robot"
+				traits = {
+					trait = trait_machine_unit
+				}
+				effect = {
+					save_global_event_target_as = dmc
+					set_species_flag = dmc_done
+				}
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = drbt_done }
+					has_trait = trait_mechanical
+				}
+				set_species_identity = event_target:drbt
+				set_species_flag = drbt_done
+			}
+			every_galaxy_species = {
+				limit = {
+					NOT = { has_species_flag = dmc_done }
+					has_trait = trait_machine_unit
+				}
+				set_species_identity = event_target:dmc
+				set_species_flag = dmc_done
+			}
+			set_global_flag = rmmod_done
+		}
+	}
+}
